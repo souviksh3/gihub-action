@@ -1,0 +1,32 @@
+name: Template Action
+
+description: This is a sample template action that adds text to a file.
+
+inputs:
+  text:
+    description: The text that will be added to the file.
+    required: true
+
+outputs:
+  file_name:
+    description: The name of the file that was created.
+
+runs:
+  using: "node12"
+
+  main: |
+    #!/usr/bin/env node
+
+    const fs = require('fs');
+
+    // Get the input text
+    const text = process.env.INPUT_TEXT;
+
+    // Randomize the file name
+    const fileName = `text-${Math.floor(Math.random() * 1000000000)}.txt`;
+
+    // Write the text to the file
+    fs.writeFileSync(fileName, text, 'utf8');
+
+    // Set the output file name
+    console.log(`::set-output name=file_name::${fileName}`);
