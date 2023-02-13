@@ -11,22 +11,28 @@ outputs:
   file_name:
     description: The name of the file that was created.
 
-runs:
-  using: "node12"
+jobs:
+  add-text:
+    runs-on: node16
 
-  main: |
-    #!/usr/bin/env node
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Add file
+        run: |
+          #!/usr/bin/env node
 
-    const fs = require('fs');
+          const fs = require('fs');
 
-    // Get the input text
-    const text = process.env.INPUT_TEXT;
+          // Get the input text
+          const text = process.env.INPUT_TEXT;
 
-    // Randomize the file name
-    const fileName = `text-${Math.floor(Math.random() * 1000000000)}.txt`;
+          // Randomize the file name
+          const fileName = `text-${Math.floor(Math.random() * 1000000000)}.txt`;
 
-    // Write the text to the file
-    fs.writeFileSync(fileName, text, 'utf8');
+          // Write the text to the file
+          fs.writeFileSync(fileName, text, 'utf8');
 
-    // Set the output file name
-    console.log(`::set-output name=file_name::${fileName}`);
+          // Set the output file name
+          console.log(`::set-output name=file_name::${fileName}`);
