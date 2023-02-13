@@ -26,3 +26,5 @@ jobs:
         with:
           commit_message: "Added text to file"
           add: "file.txt"
+          commit_user_name: "souviksh3"
+          commit_user_email: "souviksh3@gmail.com"
