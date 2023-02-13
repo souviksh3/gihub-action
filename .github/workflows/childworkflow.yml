@@ -19,6 +19,7 @@ jobs:
       - name: Add text
         run: |
           echo "Adding text to file"
+          touch file.txt
           file=$(cat file.txt)
           echo "${{inputs.text}}" >> "$file"
 
