@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   call-workflow-2-in-local-repo:
-    uses: ./.github/workflows/mainworkflow.yml
+    uses: ./.github/workflows/childworkflow.yml
 
 # jobs:
 #   build-and-test:
