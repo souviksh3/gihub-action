@@ -15,24 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        
-      - name: Add file
-        uses: actions/setup-node@v3
       
-      - name: npm install and build
+      - name: Add text
         run: |
-          #!/usr/bin/env node
+          echo "Adding text to file"
+          file=$(cat file.txt)
+          echo "${{inputs.text}}" >> "$file"
 
-          const fs = require('fs');
-
-          // Get the input text
-          const text = process.env.INPUT_TEXT;
-
-          // Randomize the file name
-          const fileName = `text-${Math.floor(Math.random() * 1000000000)}.txt`;
-
-          // Write the text to the file
-          fs.writeFileSync(fileName, text, 'utf8');
-
-          // Set the output file name
-          console.log(`::set-output name=file_name::${fileName}`);
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Added text to file"
+          add: "$(cat file.txt)"
