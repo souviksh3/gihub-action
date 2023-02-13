@@ -19,12 +19,12 @@ jobs:
       - name: Add text
         run: |
           echo "Adding text to file"
-          echo "${{inputs.text}}" >> file.txt
+          echo "${{inputs.text}}"
 
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Added text to file"
-          add: "file.txt"
-          commit_user_name: "souviksh3"
-          commit_user_email: "souviksh3@gmail.com"
+      # - name: Commit and push changes
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "Added text to file"
+      #     add: "file.txt"
+      #     commit_user_name: "souviksh3"
+      #     commit_user_email: "souviksh3@gmail.com"

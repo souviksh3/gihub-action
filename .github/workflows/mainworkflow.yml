@@ -8,15 +8,9 @@ jobs:
   call-workflow-2-in-local-repo:
     uses: ./.github/workflows/childworkflow.yml
     with:
-      text: "This is the text that will be added to the file."
+      text: "This is the text one time"
 
-
-#   build-and-test:
-#     runs-on: ubuntu-latest
-
-
-
-#       - name: Commit and push changes
-#         uses: stefanzweifel/git-auto-commit-action@v4
-#         with:
-#           commit_message: "Added text to file"
+  call-workflow-3-in-local-repo:
+    uses: ./.github/workflows/childworkflow.yml
+    with:
+      text: "This is the text two time"
