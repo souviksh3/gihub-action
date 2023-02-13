@@ -14,9 +14,8 @@ on:
 jobs:
   add-text:
     runs-on: ubuntu-latest
-
     steps:
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         
       - name: Add file
         uses: actions/setup-node@v3
