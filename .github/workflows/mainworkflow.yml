@@ -16,7 +16,7 @@ jobs:
           ref: main
 
       - name: Add Text to File
-        uses: ./childworkflow.yml
+        uses: ./.github/workflows/childworkflow.yml
         with:
           text: "This is the text that will be added to the file."
 
