@@ -9,6 +9,7 @@ on:
       text:
         description: The text that will be added to the file.
         required: true
+        type: string
 
 
 jobs:
