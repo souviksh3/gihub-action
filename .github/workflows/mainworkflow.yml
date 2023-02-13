@@ -11,10 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: main
 
       - name: Add Text to File
-        uses: ./childworkflow.yml@main
+        uses: ./childworkflow.yml
         with:
           text: "This is the text that will be added to the file."
 
